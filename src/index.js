@@ -4,14 +4,14 @@ import "./index.css";
 import App from "./App";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
-import rootReducer from "./reducers";
+import charsReducer from "./reducers";
 import {applyMiddleware} from 'redux';
-import {thunk} from 'redux-thunk';
-import {logger} from 'redux-logger';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
 
 const store = createStore(
-  rootReducer,
-  applyMiddleware
+  charsReducer,
+  applyMiddleware(thunk, logger)
 );
 
 ReactDOM.render(
